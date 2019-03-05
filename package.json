@@ -1,0 +1,58 @@
+{
+  "name": "@gasbuddy/mq-tools",
+  "version": "1.0.0",
+  "description": "RabbitMQ Tools",
+  "scripts": {
+    "test": "tap --node-arg=-r --node-arg=@babel/register tests/*.js",
+    "test-some": "tap --node-arg=-r --node-arg=@babel/register",
+    "cover": "cross-env BABEL_ENV=test nyc tap tests/test_*.js && nyc check-coverage && nyc report --reporter=text",
+    "lint": "eslint .",
+    "build": "babel src --out-dir build",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gas-buddy/gb-services.git/mq-tools.git"
+  },
+  "bin": {
+    "publish-mq-message": "build/publish-mq-message"
+  },
+  "keywords": [
+    "rabbitmq",
+    "rabbot",
+    "gasbuddy"
+  ],
+  "author": "GasBuddy",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "babel-preset-gasbuddy": "^5.3.2",
+    "cross-env": "^5.2.0",
+    "eslint-config-gasbuddy": "^5.1.0",
+    "tap": "^12.5.3"
+  },
+  "dependencies": {
+    "@gasbuddy/configured-rabbitmq-client": "^6.1.0",
+    "@gasbuddy/service": "^9.0.3",
+    "lodash": "^4.17.11",
+    "minimist": "^1.2.0",
+    "moment": "^2.24.0",
+    "rabbot": "^2.1.0",
+    "shortstop": "^1.0.3",
+    "shortstop-handlers": "^1.0.1"
+  },
+  "nyc": {
+    "include": [
+      "src"
+    ],
+    "require": [
+      "@babel/register"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "reporter": [
+      "lcov"
+    ]
+  }
+}
