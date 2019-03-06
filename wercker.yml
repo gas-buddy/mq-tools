@@ -1,4 +1,4 @@
-box: node:8
+box: node:10
 
 services:
   - rabbitmq
@@ -22,6 +22,20 @@ build:
     - script:
       name: build
       code: npm run build
+
+docker:
+  box:
+    id: gasbuddy/node-app:8-production
+    cmd: /bin/sh
+
+  steps:
+    - gasbuddy/prepare-gasbuddy-deploy@2.0.0
+
+    - internal/docker-push:
+        username: $DOCKER_HUB_USER
+        password: $DOCKER_HUB_PASSWORD
+        tag: latest
+        repository: gasbuddy/mq-tools
 
 deploy:
   steps:
