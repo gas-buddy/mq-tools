@@ -5,7 +5,7 @@ services:
 
 build:
   steps:
-    - npm-install
+    - mvandervliet/npm-ci
 
     - script:
       name: lint
