@@ -61,6 +61,9 @@ runWithService(async (service, req) => {
       goodResponse = true;
       req.gb.logger.info('Got reply', { body: JSON.stringify(reply.body) });
       await reply.ack();
+      if (reply.body.error) {
+        goodResponse = false;
+      }
     } else {
       goodResponse = true;
       req.gb.logger.info('Publishing message', message);
