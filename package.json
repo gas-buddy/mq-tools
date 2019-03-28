@@ -1,6 +1,6 @@
 {
   "name": "@gasbuddy/mq-tools",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "RabbitMQ Tools",
   "scripts": {
     "test": "tap --node-arg=-r --node-arg=@babel/register tests/*.js",
