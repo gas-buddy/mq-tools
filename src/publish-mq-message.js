@@ -22,6 +22,7 @@ runWithService(async (service, req) => {
     hostname: argv.hostname || process.env.RABBITMQ_HOSTNAME,
     config: {
       dependencies: [argv.exchange],
+      replyQueue: argv.waitForReply,
     },
   });
 

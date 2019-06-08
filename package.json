@@ -1,6 +1,6 @@
 {
   "name": "@gasbuddy/mq-tools",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "RabbitMQ Tools",
   "scripts": {
     "test": "tap --node-arg=-r --node-arg=@babel/register tests/*.js",
@@ -25,16 +25,16 @@
   "author": "GasBuddy",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/register": "^7.0.0",
-    "babel-preset-gasbuddy": "^5.3.2",
+    "@babel/cli": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "babel-preset-gasbuddy": "^5.6.0",
     "cross-env": "^5.2.0",
-    "eslint-config-gasbuddy": "^5.1.0",
-    "tap": "^12.5.3"
+    "eslint-config-gasbuddy": "^5.3.0",
+    "tap": "^14.2.2"
   },
   "dependencies": {
-    "@gasbuddy/configured-rabbitmq-client": "^6.1.0",
-    "@gasbuddy/service": "^9.0.3",
+    "@gasbuddy/configured-rabbitmq-client": "^7.0.0",
+    "@gasbuddy/service": "^10.0.3",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
     "moment": "^2.24.0",
