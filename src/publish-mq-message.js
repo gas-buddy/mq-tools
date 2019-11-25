@@ -58,6 +58,7 @@ runWithService(async (service, req) => {
         type: argv.type,
         body: message,
         replyTimeout: (argv.timeout || 30) * 1000,
+        correlationId: req.headers.correlationid,
       });
       goodResponse = true;
       req.gb.logger.info('Got reply', { body: JSON.stringify(reply.body) });
@@ -68,7 +69,7 @@ runWithService(async (service, req) => {
     } else {
       goodResponse = true;
       req.gb.logger.info('Publishing message', message);
-      await client.publish(argv.exchange, { type: argv.type, body: message });
+      await client.publish(argv.exchange, { type: argv.type, body: message, correlationId: req.headers.correlationid });
     }
   } catch (error) {
     req.gb.logger.error('Failed to publish', req.gb.wrapError(error));
