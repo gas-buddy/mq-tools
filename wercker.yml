@@ -23,11 +23,11 @@ build:
 
 docker:
   box:
-    id: gasbuddy/node-app:8-production
+    id: gasbuddy/node-app:10-production
     cmd: /bin/sh
 
   steps:
-    - gasbuddy/prepare-gasbuddy-deploy@2.0.0
+    - gasbuddy/prepare-gasbuddy-deploy@2.4.0
 
     - internal/docker-push:
         username: $DOCKER_HUB_USER
